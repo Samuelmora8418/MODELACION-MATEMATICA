@@ -1,0 +1,28 @@
+import matplotlib.pyplot as plt
+
+def f(x, y):
+    return -y + 70
+
+x, y = 0, 100
+h = 0.1
+
+xs, ys = [], []
+
+print("EULER MEJORADO")
+print("x\t y")
+
+for i in range(20):
+    xs.append(x)
+    ys.append(y)
+    print(f"{x:.1f}\t{y:.2f}")
+
+    k1 = f(x, y)
+    k2 = f(x + h, y + h*k1)
+
+    y = y + (h/2)*(k1 + k2)
+    x = x + h
+
+plt.plot(xs, ys)
+plt.title("Euler Mejorado")
+plt.grid()
+plt.show()
